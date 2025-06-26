@@ -62,21 +62,21 @@ const Hero = () => {
                 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white leading-tight opacity-0 animate-fade-in"
                 style={{ animationDelay: "0.3s" }}
               >
-                {t('heroTitle')}
+                Карелина Валерия
               </h1>
               
               <p 
                 className="text-xl text-gray-600 dark:text-gray-300 opacity-0 animate-fade-in"
                 style={{ animationDelay: "0.5s" }}
               >
-                {t('heroSubtitle')}
+                Вижу проблемы — придумываю решения — создаю продукты, которые действительно нужны
               </p>
               
               <p 
                 className="text-lg text-gray-500 dark:text-gray-400 max-w-2xl opacity-0 animate-fade-in"
                 style={{ animationDelay: "0.7s" }}
               >
-                {t('heroDescription')}
+                В поиске баланса между интересами бизнеса и реальными потребностями людей через творческий взгляд, техническое мышление и внимание к деталям
               </p>
             </div>
             
@@ -85,10 +85,12 @@ const Hero = () => {
               style={{ animationDelay: "0.9s" }}
             >
               <a 
-                href="#contact" 
+                href="/lovable-uploads/resume.pdf" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="button-primary inline-flex items-center justify-center group"
               >
-                {t('downloadCV')}
+                Посмотреть резюме
                 <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
               </a>
               
@@ -106,11 +108,14 @@ const Hero = () => {
               className="relative opacity-0 animate-fade-in"
               style={{ animationDelay: "1.1s" }}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-pulse-200 to-orange-200 dark:from-pulse-800 dark:to-orange-800 rounded-3xl blur-2xl opacity-30 transform rotate-6"></div>
+              {/* Orange gradient background element */}
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-600 via-orange-500 to-pink-500 rounded-3xl blur-2xl opacity-30 transform rotate-6 scale-110"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-400 to-pink-400 rounded-3xl blur-xl opacity-40 transform -rotate-3 scale-105"></div>
+              
               <img 
                 ref={imageRef}
                 src="/lovable-uploads/40c8633b-600f-4b78-97b2-c2fe189cfc58.png" 
-                alt="Product Manager"
+                alt="Карелина Валерия"
                 className="relative w-80 h-80 object-cover rounded-3xl shadow-2xl transition-transform duration-500 ease-out"
                 style={{ transformStyle: 'preserve-3d' }}
               />

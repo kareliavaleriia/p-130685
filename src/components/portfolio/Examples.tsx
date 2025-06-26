@@ -1,60 +1,64 @@
 
 import React from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { ArrowRight } from "lucide-react";
 
 const Examples = () => {
   const { t } = useLanguage();
 
   const examples = [
     {
+      title: "AI Chat Assistant",
+      description: "Интеллектуальный чат-бот с интеграцией OpenAI",
+      link: "https://example1.lovable.app",
+      tech: ["React", "TypeScript", "OpenAI API"]
+    },
+    {
       title: "E-commerce Dashboard",
-      description: "Аналитическая панель для интернет-магазина",
-      tech: "React, TypeScript, Charts",
-      url: "#"
+      description: "Панель управления для интернет-магазина",
+      link: "https://example2.lovable.app", 
+      tech: ["React", "Charts", "Analytics"]
     },
     {
-      title: "Learning Platform",
-      description: "Образовательная платформа с ИИ",
-      tech: "Next.js, AI Integration",
-      url: "#"
-    },
-    {
-      title: "Task Manager",
-      description: "Система управления задачами команды",
-      tech: "Vue.js, Firebase",
-      url: "#"
+      title: "Task Management App",
+      description: "Приложение для управления задачами команды",
+      link: "https://example3.lovable.app",
+      tech: ["React", "Drag & Drop", "Real-time"]
     }
   ];
 
   return (
-    <section id="examples" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-800/50">
-      <div className="container max-w-6xl mx-auto">
-        <div className="text-center mb-16 animate-on-scroll">
-          <h2 className="section-title text-gray-900 dark:text-white mb-6">
-            {t('examplesTitle')}
+    <section id="examples" className="py-20 px-4 sm:px-6 lg:px-8">
+      <div className="container max-w-7xl mx-auto">
+        <div className="mb-16 animate-on-scroll">
+          <h2 className="text-left section-title text-gray-900 dark:text-white mb-6">
+            Примеры работ
           </h2>
-          <div className="w-20 h-1 bg-pulse-500 mx-auto"></div>
+          <div className="w-20 h-1 bg-pulse-500"></div>
         </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {examples.map((example, index) => (
-            <div key={index} className="glass-card p-6 hover-lift animate-on-scroll group">
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-3">
+            <div key={index} className="glass-card p-6 animate-on-scroll hover-lift">
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
                 {example.title}
               </h3>
               <p className="text-gray-600 dark:text-gray-300 mb-4">
                 {example.description}
               </p>
-              <p className="text-sm text-pulse-600 dark:text-pulse-400 mb-6">
-                {example.tech}
-              </p>
+              <div className="flex flex-wrap gap-2 mb-4">
+                {example.tech.map((tech, techIndex) => (
+                  <span key={techIndex} className="px-2 py-1 bg-pulse-100 dark:bg-pulse-900/30 text-pulse-700 dark:text-pulse-300 text-xs rounded">
+                    {tech}
+                  </span>
+                ))}
+              </div>
               <a 
-                href={example.url}
-                className="inline-flex items-center text-pulse-600 hover:text-pulse-700 dark:text-pulse-400 dark:hover:text-pulse-300 font-medium group"
+                href={example.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-pulse-600 dark:text-pulse-400 hover:text-pulse-700 dark:hover:text-pulse-300 font-medium"
               >
-                {t('viewExample')}
-                <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                Посмотреть проект →
               </a>
             </div>
           ))}

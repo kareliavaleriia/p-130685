@@ -9,82 +9,106 @@ const Projects = () => {
 
   const projects = [
     {
-      title: "HRtech Стартап",
-      role: "Product Manager",
-      period: "2023-2024",
-      description: "Разработка платформы для автоматизации HR-процессов",
-      problem: "Компании тратили много времени на ручное управление кандидатами",
-      solution: "Создали платформу с ИИ для скрининга резюме и автоматизации интервью",
-      results: "Сократили время найма на 40%, увеличили конверсию в 2 раза",
-      tags: ["Product Strategy", "User Research", "Analytics"]
+      title: "HRtech стартап-маркетплейс вакансий JUST JOB",
+      role: "intern product manager",
+      period: "март – июнь 2023",
+      description: "Разработка платформы вакансий: анализ пользователей, тестирование гипотез, запуск и аналитика тестов.",
+      problem: "поиск актуальных направлений вакансий (сегментация пользователей)",
+      solution: "1. Проведен анализ конкурентов: составлены CJM, User flow соискателей и работодателей.\n2. Проведен анализ telegram (tg-каналов) на предмет лидогенерации\n3. Через запуск тестов Casual Impact проверены гипотезы по 41 вакансии для выборки востребованных направлений\n4. Созданы UТМ-ссылки для получения сведений о деятельности посетителей (конверсия, время на сайте).",
+      results: "Определены основные сегменты пользователей для дальнейшей разработки продукта",
+      tags: ["User flow", "CJM", "UTM-ссылки", "Яндекс Метрика", "Анализ лидогенерации"],
+      badge: "HRtech"
     },
     {
-      title: "АО \"Роббо\"",
-      role: "Product Manager",
-      period: "2022-2023", 
-      description: "Образовательная робототехника для детей",
-      problem: "Сложность внедрения робототехники в школьную программу",
-      solution: "Разработали методические материалы и упростили интерфейс",
-      results: "Внедрили в 150+ школ, NPS выросла до 75",
-      tags: ["EdTech", "UX/UI", "Roadmap"]
+      title: "АО «Роббо»",
+      role: "стажер тех.отдела",
+      period: "декабрь 2023 – май 2024", 
+      description: "Проект совершенствования процесса проверки продуктовых гипотез в управлении инновационными продуктами.",
+      problem: "Высокий уровень затрат на разработку новых продуктов и открытие новых направлений бизнеса.",
+      solution: "Разработана проектная документация: устав проекта, календарный и бюджетный планы, схемы текущего (AS IS) и ожидаемого (ТО ВЕ) процессов в нотации BPMN, проведена оценка рисков проекта. Внедрены фреймворки для оптимизации процесса",
+      results: "1. Снижение стоимости проверки гипотез на 15% от бюджета проекта\n2. Увеличение скорости проверки гипотез на 10%\n3. Снижение кол-ва перепроверок гипотез на 10%, с последующим повышением конкурентоспособности.",
+      tags: ["ТЗ проекта", "Диаграмма Ганта", "AS IS/TO BE процессы", "Реестр рисков", "Календарный план", "BPMN-нотация", "Бюджетный план"],
+      badge: "Edtech",
+      presentation: "/lovable-uploads/presentation-robbo.pdf"
     },
     {
-      title: "Школа 21",
-      role: "Product Manager Intern",
-      period: "2022",
-      description: "ИИ-решения для образования",
-      problem: "Недостаток персонализации в обучении",
-      solution: "Прототип адаптивной системы обучения с ИИ",
-      results: "MVP с 80% точностью рекомендаций",
-      tags: ["AI/ML", "MVP", "Testing"]
+      title: "АНО «Школа 21»",
+      role: "intern product manager",
+      period: "февраль 2025 – апрель 2025",
+      description: "Разработка концепции B2B-обучения и автоматизация составления программы обучения для Заказчика.",
+      problem: "Разработать концепцию B2B-обучения (формирование идеи и прототипирование продукта) с долгосрочными перспективами и оптимизировать работу специалистов Go-to-Market, методологов и продуктовой команды",
+      solution: "Выявлена актуальность существующих продуктов и сформированы гипотезы для новых продуктов с помощью кабинетного исследования трендов и курсов по ИИ, проведена разработка прототипов для автоматизации внутренних процессов",
+      results: "1. Разработана концепция продукта «B2B-обучение по работе с ИИ-ассистентами».\n2. Разработан прототип-конструктор автоматической разработки Заказчику образовательной программы для оптимизации работы Go-to-Market, методологов и продуктовой команды и возможность масштабирования.",
+      tags: ["Анализ рынка", "Концепция продукта", "App Script", "Google Colab", "ИИ-инструменты", "Python", "Figma"],
+      badge: "Edtech",
+      presentation: "/lovable-uploads/presentation-school21.pdf"
     }
   ];
 
   return (
     <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-800/50">
       <div className="container max-w-7xl mx-auto">
-        <div className="text-center mb-16 animate-on-scroll">
-          <h2 className="section-title text-gray-900 dark:text-white mb-6">
-            {t('projectsTitle')}
+        <div className="mb-16 animate-on-scroll">
+          <h2 className="text-left section-title text-gray-900 dark:text-white mb-6">
+            Карьера
           </h2>
-          <div className="w-20 h-1 bg-pulse-500 mx-auto"></div>
+          <div className="w-20 h-1 bg-pulse-500"></div>
         </div>
         
-        <div className="grid lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <div key={index} className="feature-card glass-card hover-lift animate-on-scroll">
-              <div className="mb-4">
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                  {project.title}
-                </h3>
-                <p className="text-pulse-600 dark:text-pulse-400 font-medium mb-1">
-                  {project.role}
-                </p>
-                <p className="text-sm text-gray-500 dark:text-gray-400">
-                  {project.period}
-                </p>
-              </div>
-              
-              <p className="text-gray-600 dark:text-gray-300 mb-4">
-                {project.description}
-              </p>
-              
-              <div className="flex flex-wrap gap-2 mb-6">
-                {project.tags.map((tag, tagIndex) => (
-                  <span key={tagIndex} className="px-3 py-1 bg-pulse-100 dark:bg-pulse-900/30 text-pulse-700 dark:text-pulse-300 text-xs rounded-full">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              
-              <button
-                onClick={() => setSelectedProject(index)}
-                className="w-full py-2 px-4 bg-pulse-600 hover:bg-pulse-700 text-white rounded-lg transition-colors"
+        <div className="relative max-w-2xl mx-auto">
+          <div className="space-y-6">
+            {projects.map((project, index) => (
+              <div 
+                key={index} 
+                className="relative animate-on-scroll"
+                style={{ 
+                  zIndex: projects.length - index,
+                  transform: `translateY(${index * -20}px) scale(${1 - index * 0.02})`,
+                  marginBottom: index < projects.length - 1 ? `-${80 + index * 10}px` : '0'
+                }}
               >
-                {t('viewPresentation')}
-              </button>
-            </div>
-          ))}
+                <div className="bg-gradient-to-br from-purple-600 via-orange-500 to-pink-600 p-8 rounded-2xl shadow-2xl text-white hover:transform hover:scale-105 transition-all duration-300">
+                  <div className="relative">
+                    {/* Badge */}
+                    <div className="absolute top-0 right-0 bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium">
+                      {project.badge}
+                    </div>
+                    
+                    <div className="mb-6">
+                      <h3 className="text-2xl font-bold mb-3">
+                        {project.title}
+                      </h3>
+                      <p className="text-orange-200 font-medium mb-2 text-lg">
+                        {project.role}
+                      </p>
+                      <p className="text-white/80 mb-4">
+                        {project.period}
+                      </p>
+                    </div>
+                    
+                    <p className="text-white/90 mb-6 leading-relaxed">
+                      {project.description}
+                    </p>
+                    
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {project.tags.map((tag, tagIndex) => (
+                        <span key={tagIndex} className="px-3 py-1 bg-white/20 backdrop-blur-sm text-white text-sm rounded-full">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    
+                    <button
+                      onClick={() => setSelectedProject(index)}
+                      className="w-full py-3 px-6 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white rounded-lg transition-all duration-300 font-medium"
+                    >
+                      Подробнее
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -93,21 +117,44 @@ const Projects = () => {
         isOpen={selectedProject !== null} 
         onClose={() => setSelectedProject(null)}
         title={selectedProject !== null ? projects[selectedProject].title : ""}
+        className="max-w-4xl"
       >
         {selectedProject !== null && (
           <div className="space-y-6">
             <div>
-              <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Проблема:</h4>
-              <p className="text-gray-600 dark:text-gray-300">{projects[selectedProject].problem}</p>
+              <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
+                {selectedProject === 0 ? "Проблема:" : selectedProject === 1 ? "Проблема:" : "Цели:"}
+              </h4>
+              <p className="text-gray-600 dark:text-gray-300 whitespace-pre-line">
+                {projects[selectedProject].problem}
+              </p>
             </div>
             <div>
               <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Решение:</h4>
-              <p className="text-gray-600 dark:text-gray-300">{projects[selectedProject].solution}</p>
+              <p className="text-gray-600 dark:text-gray-300 whitespace-pre-line">
+                {projects[selectedProject].solution}
+              </p>
             </div>
             <div>
               <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Результаты:</h4>
-              <p className="text-gray-600 dark:text-gray-300">{projects[selectedProject].results}</p>
+              <p className="text-gray-600 dark:text-gray-300 whitespace-pre-line">
+                {projects[selectedProject].results}
+              </p>
             </div>
+            
+            {/* PDF Preview for projects with presentations */}
+            {projects[selectedProject].presentation && (
+              <div className="mt-6">
+                <h4 className="font-semibold text-gray-900 dark:text-white mb-4">Презентация:</h4>
+                <div className="w-full h-96 border rounded-lg overflow-hidden">
+                  <iframe
+                    src={projects[selectedProject].presentation}
+                    className="w-full h-full"
+                    title="Презентация проекта"
+                  />
+                </div>
+              </div>
+            )}
           </div>
         )}
       </Modal>

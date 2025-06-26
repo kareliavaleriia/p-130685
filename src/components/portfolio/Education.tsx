@@ -5,86 +5,115 @@ import Modal from "@/components/ui/modal";
 
 const Education = () => {
   const { t } = useLanguage();
-  const [selectedEducation, setSelectedEducation] = useState<number | null>(null);
+  const [selectedDocument, setSelectedDocument] = useState<string | null>(null);
 
   const education = [
     {
-      title: "СПбПУ Петра Великого",
-      degree: "Магистр техники и технологии",
-      period: "2021-2023",
-      description: "Диплом с отличием, стипендия за академические успехи",
-      details: "Специализация: Инновационные технологии в машиностроении"
+      institution: "ИТМО",
+      degree: "Магистратура • Инновационное предпринимательство",
+      period: "2023-2025",
+      description: "Диплом с отличием",
+      document: "/lovable-uploads/diploma-itmo.pdf"
     },
     {
-      title: "ИТМО",
-      degree: "Переподготовка по Product Management",
-      period: "2022",
-      description: "Углубленное изучение продуктового менеджмента",
-      details: "Курс включал: User Research, Analytics, Product Strategy"
+      institution: "СПбПУ",
+      degree: "Бакалавриат • Экономика и управление",
+      period: "2019-2023", 
+      description: "Диплом с отличием, стипендия Правительства РФ",
+      document: "/lovable-uploads/diploma-spbpu.pdf"
+    }
+  ];
+
+  const courses = [
+    {
+      name: "Product Management",
+      provider: "OTUS",
+      year: "2024",
+      document: "/lovable-uploads/cert-otus.pdf"
     },
     {
-      title: "Онлайн-курсы",
-      degree: "Специализированное обучение",
-      period: "2020-2024",
-      description: "Coursera, Skillbox, ProductStar",
-      details: "Data Analysis, UX/UI Design, Agile/Scrum"
+      name: "UX/UI Design",
+      provider: "Нетология",
+      year: "2023",
+      document: "/lovable-uploads/cert-netology.pdf"
     }
   ];
 
   return (
-    <section id="education" className="py-20 px-4 sm:px-6 lg:px-8">
-      <div className="container max-w-6xl mx-auto">
-        <div className="text-center mb-16 animate-on-scroll">
-          <h2 className="section-title text-gray-900 dark:text-white mb-6">
-            {t('educationTitle')}
+    <section id="education" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-800/50">
+      <div className="container max-w-7xl mx-auto">
+        <div className="mb-16 animate-on-scroll">
+          <h2 className="text-left section-title text-gray-900 dark:text-white mb-6">
+            Образование
           </h2>
-          <div className="w-20 h-1 bg-pulse-500 mx-auto"></div>
+          <div className="w-20 h-1 bg-pulse-500"></div>
         </div>
         
-        <div className="space-y-8">
-          {education.map((item, index) => (
-            <div key={index} className="glass-card p-6 flex flex-col lg:flex-row lg:items-center lg:justify-between hover-lift animate-on-scroll">
-              <div className="flex-1">
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-pulse-600 dark:text-pulse-400 font-medium mb-1">
-                  {item.degree}
+        <div className="grid lg:grid-cols-2 gap-8">
+          <div className="space-y-6">
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Высшее образование</h3>
+            {education.map((edu, index) => (
+              <div key={index} className="glass-card p-6 animate-on-scroll hover-lift">
+                <h4 className="font-bold text-lg text-gray-900 dark:text-white mb-2">
+                  {edu.institution}
+                </h4>
+                <p className="text-pulse-600 dark:text-pulse-400 font-medium mb-2">
+                  {edu.degree}
                 </p>
                 <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
-                  {item.period}
+                  {edu.period}
                 </p>
-                <p className="text-gray-600 dark:text-gray-300">
-                  {item.description}
+                <p className="text-gray-600 dark:text-gray-300 mb-4">
+                  {edu.description}
                 </p>
+                <button
+                  onClick={() => setSelectedDocument(edu.document)}
+                  className="text-pulse-600 dark:text-pulse-400 hover:text-pulse-700 dark:hover:text-pulse-300 font-medium"
+                >
+                  Посмотреть диплом
+                </button>
               </div>
-              
-              <button
-                onClick={() => setSelectedEducation(index)}
-                className="mt-4 lg:mt-0 lg:ml-6 py-2 px-4 bg-pulse-600 hover:bg-pulse-700 text-white rounded-lg transition-colors"
-              >
-                {t('viewDocument')}
-              </button>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          <div className="space-y-6">
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Дополнительное образование</h3>
+            {courses.map((course, index) => (
+              <div key={index} className="glass-card p-6 animate-on-scroll hover-lift">
+                <h4 className="font-bold text-lg text-gray-900 dark:text-white mb-2">
+                  {course.name}
+                </h4>
+                <p className="text-pulse-600 dark:text-pulse-400 font-medium mb-2">
+                  {course.provider}
+                </p>
+                <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+                  {course.year}
+                </p>
+                <button
+                  onClick={() => setSelectedDocument(course.document)}
+                  className="text-pulse-600 dark:text-pulse-400 hover:text-pulse-700 dark:hover:text-pulse-300 font-medium"
+                >
+                  Посмотреть сертификат
+                </button>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
       <Modal 
-        isOpen={selectedEducation !== null} 
-        onClose={() => setSelectedEducation(null)}
-        title={selectedEducation !== null ? education[selectedEducation].title : ""}
+        isOpen={selectedDocument !== null} 
+        onClose={() => setSelectedDocument(null)}
+        title="Документ"
+        className="max-w-4xl"
       >
-        {selectedEducation !== null && (
-          <div className="space-y-4">
-            <p className="text-gray-600 dark:text-gray-300">
-              {education[selectedEducation].details}
-            </p>
-            <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg text-center">
-              <p className="text-gray-500 dark:text-gray-400">
-                Документ будет отображен здесь
-              </p>
-            </div>
+        {selectedDocument && (
+          <div className="w-full h-96">
+            <iframe
+              src={selectedDocument}
+              className="w-full h-full border rounded-lg"
+              title="Документ об образовании"
+            />
           </div>
         )}
       </Modal>

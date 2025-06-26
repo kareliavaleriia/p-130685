@@ -1,13 +1,12 @@
 
 import React, { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { cn } from "@/lib/utils";
 
 const FAQ = () => {
   const { t } = useLanguage();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  const faqData = [
+  const faqs = [
     {
       question: "Какими проектами ты гордишься больше всего и почему?",
       answer: "Командная победа — инженерные соревнования, где мы с подругами заняли на первом курсе второе место, а потом нас позвали на летнюю практику в Газпром нефть. Личная победа — призерство во всероссийской олимпиаде, по которой я поступила в магистратуру без экзаменов. Профессионально — стажировка в Школе 21, где я сильно прокачалась в теме ИИ, собрала свои реально работающие прототипы и первую концепцию Edtech-продукта."
@@ -41,43 +40,34 @@ const FAQ = () => {
   return (
     <section id="faq" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-800/50">
       <div className="container max-w-4xl mx-auto">
-        <div className="text-center mb-16 animate-on-scroll">
-          <h2 className="section-title text-gray-900 dark:text-white mb-6">
-            {t('faqTitle')}
+        <div className="mb-16 animate-on-scroll">
+          <h2 className="text-left section-title text-gray-900 dark:text-white mb-6">
+            FAQ
           </h2>
-          <div className="w-20 h-1 bg-pulse-500 mx-auto"></div>
+          <div className="w-20 h-1 bg-pulse-500"></div>
         </div>
         
         <div className="space-y-4">
-          {faqData.map((item, index) => (
+          {faqs.map((faq, index) => (
             <div key={index} className="glass-card animate-on-scroll">
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full p-6 text-left hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors"
+                className="w-full p-6 text-left flex justify-between items-center"
               >
-                <div className="flex justify-between items-center">
-                  <h3 className="font-semibold text-gray-900 dark:text-white pr-4">
-                    {item.question}
-                  </h3>
-                  <span className={cn(
-                    "text-pulse-600 dark:text-pulse-400 transition-transform duration-200",
-                    openIndex === index ? "rotate-180" : ""
-                  )}>
-                    ▼
-                  </span>
-                </div>
+                <h3 className="font-semibold text-gray-900 dark:text-white pr-4">
+                  {faq.question}
+                </h3>
+                <span className="text-pulse-500 text-xl">
+                  {openIndex === index ? '−' : '+'}
+                </span>
               </button>
-              
-              <div className={cn(
-                "overflow-hidden transition-all duration-300",
-                openIndex === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-              )}>
+              {openIndex === index && (
                 <div className="px-6 pb-6">
                   <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                    {item.answer}
+                    {faq.answer}
                   </p>
                 </div>
-              </div>
+              )}
             </div>
           ))}
         </div>
