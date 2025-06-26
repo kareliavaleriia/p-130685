@@ -24,7 +24,7 @@ const Navbar = () => {
 
   const menuItems = [
     { key: 'about', href: '#about' },
-    { key: 'projects', href: '#projects' },
+    { key: 'projects', href: '#projects', label: 'Карьера' },
     { key: 'education', href: '#education' },
     { key: 'achievements', href: '#achievements' },
     { key: 'skills', href: '#skills' },
@@ -58,7 +58,7 @@ const Navbar = () => {
                 href={item.href} 
                 className="nav-link text-gray-700 dark:text-gray-300 hover:text-pulse-600 dark:hover:text-pulse-400"
               >
-                {t(item.key)}
+                {item.label || t(item.key)}
               </a>
             ))}
           </nav>
@@ -104,7 +104,7 @@ const Navbar = () => {
                 className="py-2 text-gray-700 dark:text-gray-300 hover:text-pulse-600 dark:hover:text-pulse-400 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
-                {t(item.key)}
+                {item.label || t(item.key)}
               </a>
             ))}
           </nav>
