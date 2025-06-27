@@ -47,25 +47,58 @@ const Hero = () => {
 
   return (
     <section className="relative pt-24 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-pulse-50/50 to-orange-50/30 dark:from-gray-900 dark:to-gray-800 overflow-hidden">
-      {/* Bright Orange Horizontal Gradient Strip */}
+      {/* Decorative brush stroke line */}
       <div className="absolute inset-0 pointer-events-none">
-        <div 
-          className="absolute top-1/2 left-0 right-0 transform -translate-y-1/2 h-[400px] sm:h-[500px] lg:h-[600px]"
-          style={{
-            background: 'linear-gradient(90deg, rgba(255, 69, 0, 0.9) 0%, rgba(255, 140, 0, 0.95) 25%, rgba(255, 165, 0, 1) 50%, rgba(255, 140, 0, 0.95) 75%, rgba(255, 69, 0, 0.9) 100%)',
-            opacity: 0.8,
-          }}
-        />
-        
-        {/* Additional glow effect */}
-        <div 
-          className="absolute top-1/2 left-0 right-0 transform -translate-y-1/2 h-[300px] sm:h-[400px] lg:h-[500px]"
-          style={{
-            background: 'linear-gradient(90deg, rgba(255, 140, 0, 0.6) 0%, rgba(255, 165, 0, 0.8) 30%, rgba(255, 99, 71, 1) 50%, rgba(255, 165, 0, 0.8) 70%, rgba(255, 140, 0, 0.6) 100%)',
-            filter: 'blur(20px)',
-            opacity: 0.7,
-          }}
-        />
+        <svg 
+          className="absolute top-1/2 left-1/4 transform -translate-y-1/2 w-96 h-32 sm:w-[600px] sm:h-48 lg:w-[800px] lg:h-64"
+          viewBox="0 0 800 200"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <linearGradient id="brushGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#ff4500" stopOpacity="0.8" />
+              <stop offset="30%" stopColor="#ffa500" stopOpacity="0.9" />
+              <stop offset="60%" stopColor="#ffb347" stopOpacity="0.7" />
+              <stop offset="90%" stopColor="#4a4a4a" stopOpacity="0.6" />
+              <stop offset="100%" stopColor="#2d2d2d" stopOpacity="0.4" />
+            </linearGradient>
+            <filter id="roughPaper">
+              <feTurbulence baseFrequency="0.04" numOctaves="5" result="noise" seed="1"/>
+              <feDisplacementMap in="SourceGraphic" in2="noise" scale="2"/>
+            </filter>
+          </defs>
+          <path
+            d="M50 120 Q200 80 350 100 T650 90 Q720 85 750 95"
+            stroke="url(#brushGradient)"
+            strokeWidth="12"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            filter="url(#roughPaper)"
+            opacity="0.7"
+          />
+          <path
+            d="M45 125 Q195 75 345 105 T645 95 Q715 90 755 100"
+            stroke="url(#brushGradient)"
+            strokeWidth="8"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            filter="url(#roughPaper)"
+            opacity="0.5"
+          />
+          <path
+            d="M55 115 Q205 85 355 95 T655 85 Q725 80 745 90"
+            stroke="url(#brushGradient)"
+            strokeWidth="6"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            filter="url(#roughPaper)"
+            opacity="0.3"
+          />
+        </svg>
       </div>
 
       <div className="container max-w-7xl mx-auto relative z-10">
