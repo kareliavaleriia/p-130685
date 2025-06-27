@@ -50,28 +50,29 @@ const Hero = () => {
       {/* Decorative brush stroke line */}
       <div className="absolute inset-0 pointer-events-none">
         <svg 
-          className="absolute top-1/2 left-1/4 transform -translate-y-1/2 w-96 h-32 sm:w-[600px] sm:h-48 lg:w-[800px] lg:h-64"
-          viewBox="0 0 800 200"
+          className="absolute top-1/2 left-0 transform -translate-y-1/2 w-full h-40 sm:h-56 lg:h-72"
+          viewBox="0 0 1200 300"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="none"
         >
           <defs>
-            <linearGradient id="brushGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#ff4500" stopOpacity="0.8" />
-              <stop offset="30%" stopColor="#ffa500" stopOpacity="0.9" />
-              <stop offset="60%" stopColor="#ffb347" stopOpacity="0.7" />
-              <stop offset="90%" stopColor="#4a4a4a" stopOpacity="0.6" />
-              <stop offset="100%" stopColor="#2d2d2d" stopOpacity="0.4" />
+            <linearGradient id="brushGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#d4af37" stopOpacity="0.8" />
+              <stop offset="25%" stopColor="#ffd700" stopOpacity="0.9" />
+              <stop offset="50%" stopColor="#ff4500" stopOpacity="1" />
+              <stop offset="75%" stopColor="#ffd700" stopOpacity="0.9" />
+              <stop offset="100%" stopColor="#d4af37" stopOpacity="0.8" />
             </linearGradient>
             <filter id="roughPaper">
               <feTurbulence baseFrequency="0.04" numOctaves="5" result="noise" seed="1"/>
-              <feDisplacementMap in="SourceGraphic" in2="noise" scale="2"/>
+              <feDisplacementMap in="SourceGraphic" in2="noise" scale="3"/>
             </filter>
           </defs>
           <path
-            d="M50 120 Q200 80 350 100 T650 90 Q720 85 750 95"
+            d="M0 150 Q200 120 400 140 T800 130 Q1000 125 1200 135"
             stroke="url(#brushGradient)"
-            strokeWidth="12"
+            strokeWidth="25"
             fill="none"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -79,9 +80,9 @@ const Hero = () => {
             opacity="0.7"
           />
           <path
-            d="M45 125 Q195 75 345 105 T645 95 Q715 90 755 100"
+            d="M0 155 Q180 115 380 145 T780 135 Q980 130 1200 140"
             stroke="url(#brushGradient)"
-            strokeWidth="8"
+            strokeWidth="18"
             fill="none"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -89,9 +90,9 @@ const Hero = () => {
             opacity="0.5"
           />
           <path
-            d="M55 115 Q205 85 355 95 T655 85 Q725 80 745 90"
+            d="M0 145 Q220 125 420 135 T820 125 Q1020 120 1200 130"
             stroke="url(#brushGradient)"
-            strokeWidth="6"
+            strokeWidth="12"
             fill="none"
             strokeLinecap="round"
             strokeLinejoin="round"
