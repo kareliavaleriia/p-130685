@@ -9,32 +9,36 @@ const Education = () => {
 
   const education = [
     {
-      institution: "ИТМО",
-      degree: "Магистратура • Инновационное предпринимательство",
-      period: "2023-2025",
-      description: "Диплом с отличием",
+      institution: "НИУ ИТМО",
+      degree: "Магистратура • Цифровые продукты: создание и управление",
+      period: "2024-2026",
+      description: "",
+      tags: ["Оценка рынка", "Продуктовый подход", "VRIO-анализ", "Пользовательские исследования", "Agile-подход", "Стратегический менеджмент", "Работа с данными", "Цифровые бизнес-модели", "Figma", "Яндекс Метрика", "Маркетинг", "Составление презентаций", "Тестирование гипотез"],
       document: "/lovable-uploads/diploma-itmo.pdf"
     },
     {
-      institution: "СПбПУ",
-      degree: "Бакалавриат • Экономика и управление",
-      period: "2019-2023", 
-      description: "Диплом с отличием, стипендия Правительства РФ",
+      institution: "СПбПУ Петра Великого",
+      degree: "Бакалавриат • Инноватика",
+      period: "2020-2024", 
+      description: "Диплом с отличием",
+      tags: ["Управление инновационной деятельностью", "Системный анализ", "Принятие решений", "Стратегии управления", "Менеджмент качества", "Управление продуктом", "Управление проектами", "Управление ресурсами", "Miro", "Figma", "Power BI", "C#"],
       document: "/lovable-uploads/diploma-spbpu.pdf"
     }
   ];
 
   const courses = [
     {
-      name: "Product Management",
-      provider: "OTUS",
+      name: "Управление проектами и продуктами при разработке цифровых сервисов",
+      provider: "Формула-IT Цифровые кафедры, СПбПУ",
       year: "2024",
+      tags: ["Анализ конкурентов", "SWOT-анализ", "PEST-анализ", "Анализ ЦА", "Образ продукта"],
       document: "/lovable-uploads/cert-otus.pdf"
     },
     {
-      name: "UX/UI Design",
-      provider: "Нетология",
+      name: "Технологии анализа данных",
+      provider: "Bonus Track, ИТМО",
       year: "2023",
+      tags: ["Анализ данных", "SQL-запросы"],
       document: "/lovable-uploads/cert-netology.pdf"
     }
   ];
@@ -63,9 +67,21 @@ const Education = () => {
                 <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
                   {edu.period}
                 </p>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  {edu.description}
-                </p>
+                {edu.description && (
+                  <p className="text-gray-600 dark:text-gray-300 mb-4">
+                    {edu.description}
+                  </p>
+                )}
+                
+                {/* Skills Tags */}
+                <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4">
+                  {edu.tags.map((tag, tagIndex) => (
+                    <span key={tagIndex} className="px-2 sm:px-3 py-1 bg-pulse-100 dark:bg-pulse-900/30 text-pulse-700 dark:text-pulse-300 text-xs sm:text-sm rounded-full border border-pulse-200 dark:border-pulse-700">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                
                 <button
                   onClick={() => setSelectedDocument(edu.document)}
                   className="text-pulse-600 dark:text-pulse-400 hover:text-pulse-700 dark:hover:text-pulse-300 font-medium"
@@ -89,6 +105,16 @@ const Education = () => {
                 <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
                   {course.year}
                 </p>
+                
+                {/* Skills Tags */}
+                <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4">
+                  {course.tags.map((tag, tagIndex) => (
+                    <span key={tagIndex} className="px-2 sm:px-3 py-1 bg-pulse-100 dark:bg-pulse-900/30 text-pulse-700 dark:text-pulse-300 text-xs sm:text-sm rounded-full border border-pulse-200 dark:border-pulse-700">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                
                 <button
                   onClick={() => setSelectedDocument(course.document)}
                   className="text-pulse-600 dark:text-pulse-400 hover:text-pulse-700 dark:hover:text-pulse-300 font-medium"

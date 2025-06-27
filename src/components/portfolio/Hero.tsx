@@ -47,32 +47,23 @@ const Hero = () => {
 
   return (
     <section className="relative pt-24 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-pulse-50/50 to-orange-50/30 dark:from-gray-900 dark:to-gray-800 overflow-hidden">
-      {/* Bright Orange Gradient Decorative Element */}
+      {/* Bright Orange Horizontal Gradient Strip */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* Main gradient background */}
         <div 
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] opacity-60"
+          className="absolute top-1/2 left-0 right-0 transform -translate-y-1/2 h-[400px] sm:h-[500px] lg:h-[600px]"
           style={{
-            background: 'radial-gradient(ellipse 800px 600px at center, rgba(255, 165, 0, 0.8) 0%, rgba(255, 140, 0, 0.6) 20%, rgba(255, 69, 0, 0.4) 40%, rgba(255, 99, 71, 0.2) 60%, transparent 80%)',
-            filter: 'blur(40px)',
+            background: 'linear-gradient(90deg, rgba(255, 69, 0, 0.9) 0%, rgba(255, 140, 0, 0.95) 25%, rgba(255, 165, 0, 1) 50%, rgba(255, 140, 0, 0.95) 75%, rgba(255, 69, 0, 0.9) 100%)',
+            opacity: 0.8,
           }}
         />
         
-        {/* Secondary gradient for more depth */}
+        {/* Additional glow effect */}
         <div 
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[100%] h-[100%] opacity-40"
+          className="absolute top-1/2 left-0 right-0 transform -translate-y-1/2 h-[300px] sm:h-[400px] lg:h-[500px]"
           style={{
-            background: 'radial-gradient(ellipse 600px 400px at center, rgba(255, 140, 0, 0.9) 0%, rgba(255, 165, 0, 0.7) 30%, rgba(255, 69, 0, 0.5) 50%, transparent 70%)',
-            filter: 'blur(60px)',
-          }}
-        />
-        
-        {/* Accent gradient for glow effect */}
-        <div 
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] opacity-30"
-          style={{
-            background: 'radial-gradient(ellipse 400px 300px at center, rgba(255, 165, 0, 1) 0%, rgba(255, 140, 0, 0.8) 25%, rgba(255, 99, 71, 0.6) 50%, transparent 70%)',
-            filter: 'blur(80px)',
+            background: 'linear-gradient(90deg, rgba(255, 140, 0, 0.6) 0%, rgba(255, 165, 0, 0.8) 30%, rgba(255, 99, 71, 1) 50%, rgba(255, 165, 0, 0.8) 70%, rgba(255, 140, 0, 0.6) 100%)',
+            filter: 'blur(20px)',
+            opacity: 0.7,
           }}
         />
       </div>
