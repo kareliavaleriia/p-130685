@@ -46,12 +46,42 @@ const Hero = () => {
   }, [isMobile]);
 
   return (
-    <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-pulse-50/50 to-orange-50/30 dark:from-gray-900 dark:to-gray-800">
-      <div className="container max-w-7xl mx-auto">
+    <section className="relative pt-24 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-pulse-50/50 to-orange-50/30 dark:from-gray-900 dark:to-gray-800 overflow-hidden">
+      {/* Bright Orange Gradient Decorative Element */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Main gradient background */}
+        <div 
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] opacity-60"
+          style={{
+            background: 'radial-gradient(ellipse 800px 600px at center, rgba(255, 165, 0, 0.8) 0%, rgba(255, 140, 0, 0.6) 20%, rgba(255, 69, 0, 0.4) 40%, rgba(255, 99, 71, 0.2) 60%, transparent 80%)',
+            filter: 'blur(40px)',
+          }}
+        />
+        
+        {/* Secondary gradient for more depth */}
+        <div 
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[100%] h-[100%] opacity-40"
+          style={{
+            background: 'radial-gradient(ellipse 600px 400px at center, rgba(255, 140, 0, 0.9) 0%, rgba(255, 165, 0, 0.7) 30%, rgba(255, 69, 0, 0.5) 50%, transparent 70%)',
+            filter: 'blur(60px)',
+          }}
+        />
+        
+        {/* Accent gradient for glow effect */}
+        <div 
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] opacity-30"
+          style={{
+            background: 'radial-gradient(ellipse 400px 300px at center, rgba(255, 165, 0, 1) 0%, rgba(255, 140, 0, 0.8) 25%, rgba(255, 99, 71, 0.6) 50%, transparent 70%)',
+            filter: 'blur(80px)',
+          }}
+        />
+      </div>
+
+      <div className="container max-w-7xl mx-auto relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <div className="space-y-4">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 dark:text-white leading-tight opacity-0 animate-fade-in whitespace-nowrap" style={{
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 dark:text-white leading-tight opacity-0 animate-fade-in" style={{
                 animationDelay: "0.3s"
               }}>
                 Карелина Валерия
