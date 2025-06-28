@@ -1,13 +1,11 @@
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Modal from "@/components/ui/modal";
 
 const Projects = () => {
   const { t } = useLanguage();
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
-  const [currentCard, setCurrentCard] = useState(0);
-  const sectionRef = useRef<HTMLDivElement>(null);
 
   const projects = [
     {
@@ -48,34 +46,10 @@ const Projects = () => {
     }
   ];
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!sectionRef.current) return;
-      
-      const section = sectionRef.current;
-      const rect = section.getBoundingClientRect();
-      const sectionTop = rect.top;
-      const sectionHeight = rect.height;
-      const windowHeight = window.innerHeight;
-      
-      // Check if we're in the projects section
-      if (sectionTop <= 0 && sectionTop > -sectionHeight + windowHeight) {
-        // Calculate which card should be visible based on scroll position
-        const scrollProgress = Math.abs(sectionTop) / Math.max(1, sectionHeight - windowHeight);
-        const cardIndex = Math.min(Math.floor(scrollProgress * projects.length), projects.length - 1);
-        setCurrentCard(cardIndex);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [projects.length]);
-
   return (
     <section 
       id="projects" 
-      ref={sectionRef}
-      className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-800/50 min-h-screen"
+      className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-800/50"
     >
       <div className="container max-w-7xl mx-auto">
         <div className="mb-12 sm:mb-16 animate-on-scroll">
@@ -85,56 +59,48 @@ const Projects = () => {
           <div className="w-20 h-1 bg-pulse-500"></div>
         </div>
         
-        <div className="relative max-w-6xl mx-auto" style={{ height: "32rem" }}>
+        <div className="space-y-6">
           {projects.map((project, index) => (
             <div 
               key={index} 
-              className={`absolute inset-0 transition-all duration-700 ease-out ${
-                index <= currentCard ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-              }`}
-              style={{ 
-                zIndex: projects.length - index,
-                transform: `translateY(${Math.max(0, (index - currentCard) * 15)}px) scale(${Math.max(0.92, 1 - Math.max(0, (index - currentCard) * 0.04))})`,
-              }}
+              className="bg-gradient-to-br from-orange-600 via-gray-800 to-gray-900 p-6 sm:p-8 rounded-2xl shadow-2xl text-white hover:transform hover:scale-[1.02] transition-all duration-300"
             >
-              <div className="bg-gradient-to-br from-orange-600 via-gray-800 to-gray-900 p-6 sm:p-8 rounded-2xl shadow-2xl text-white hover:transform hover:scale-[1.02] transition-all duration-300 h-full w-full">
-                <div className="relative h-full flex flex-col">
-                  {/* Badge */}
-                  <div className="absolute top-0 right-0 bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-xs sm:text-sm font-medium">
-                    {project.badge}
-                  </div>
-                  
-                  <div className="mb-4 sm:mb-6 pr-16 sm:pr-20">
-                    <h3 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-3 leading-tight">
-                      {project.title}
-                    </h3>
-                    <p className="text-orange-200 font-medium mb-2 text-base sm:text-lg">
-                      {project.role}
-                    </p>
-                    <p className="text-white/80 mb-3 sm:mb-4 text-sm sm:text-base">
-                      {project.period}
-                    </p>
-                  </div>
-                  
-                  <p className="text-white/90 mb-4 sm:mb-6 leading-relaxed flex-grow text-sm sm:text-base">
-                    {project.description}
-                  </p>
-                  
-                  <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4 sm:mb-6">
-                    {project.tags.map((tag, tagIndex) => (
-                      <span key={tagIndex} className="px-2 sm:px-3 py-1 bg-white/20 backdrop-blur-sm text-white text-xs sm:text-sm rounded-full">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  
-                  <button
-                    onClick={() => setSelectedProject(index)}
-                    className="w-full py-2.5 sm:py-3 px-4 sm:px-6 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white rounded-lg transition-all duration-300 font-medium mt-auto text-sm sm:text-base"
-                  >
-                    Подробнее
-                  </button>
+              <div className="relative">
+                {/* Badge */}
+                <div className="absolute top-0 right-0 bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-xs sm:text-sm font-medium">
+                  {project.badge}
                 </div>
+                
+                <div className="mb-4 sm:mb-6 pr-16 sm:pr-20">
+                  <h3 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-3 leading-tight">
+                    {project.title}
+                  </h3>
+                  <p className="text-orange-200 font-medium mb-2 text-base sm:text-lg">
+                    {project.role}
+                  </p>
+                  <p className="text-white/80 mb-3 sm:mb-4 text-sm sm:text-base">
+                    {project.period}
+                  </p>
+                </div>
+                
+                <p className="text-white/90 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
+                  {project.description}
+                </p>
+                
+                <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4 sm:mb-6">
+                  {project.tags.map((tag, tagIndex) => (
+                    <span key={tagIndex} className="px-2 sm:px-3 py-1 bg-white/20 backdrop-blur-sm text-white text-xs sm:text-sm rounded-full">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                
+                <button
+                  onClick={() => setSelectedProject(index)}
+                  className="w-full py-2.5 sm:py-3 px-4 sm:px-6 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white rounded-lg transition-all duration-300 font-medium text-sm sm:text-base"
+                >
+                  Подробнее
+                </button>
               </div>
             </div>
           ))}
