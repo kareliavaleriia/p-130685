@@ -27,11 +27,11 @@ const Examples = () => {
   ];
 
   return (
-    <section id="examples" className="py-20 px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="container max-w-7xl mx-auto">
         <div className="mb-16 animate-on-scroll">
           <h2 className="text-left section-title text-gray-900 dark:text-white mb-6">
-            Примеры работ
+            Проекты
           </h2>
           <div className="w-20 h-1 bg-pulse-500"></div>
         </div>
