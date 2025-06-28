@@ -47,57 +47,86 @@ const Hero = () => {
 
   return (
     <section className="relative pt-24 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-pulse-50/50 to-orange-50/30 dark:from-gray-900 dark:to-gray-800 overflow-hidden">
-      {/* Decorative brush stroke line */}
+      {/* Enhanced decorative brush stroke line */}
       <div className="absolute inset-0 pointer-events-none">
         <svg 
-          className="absolute top-1/2 left-0 transform -translate-y-1/2 w-full h-60 sm:h-80 lg:h-96"
+          className="absolute top-1/2 left-0 transform -translate-y-1/2 w-full h-80 sm:h-96 lg:h-[32rem]"
           viewBox="0 0 1200 400"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           preserveAspectRatio="none"
         >
           <defs>
-            <linearGradient id="brushGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#d4af37" stopOpacity="0.8" />
-              <stop offset="25%" stopColor="#ffd700" stopOpacity="0.9" />
-              <stop offset="50%" stopColor="#ff4500" stopOpacity="1" />
-              <stop offset="75%" stopColor="#ffd700" stopOpacity="0.9" />
-              <stop offset="100%" stopColor="#d4af37" stopOpacity="0.8" />
+            <linearGradient id="brushGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#ff8c00" stopOpacity="0.9" />
+              <stop offset="15%" stopColor="#ff7f00" stopOpacity="0.95" />
+              <stop offset="30%" stopColor="#ff6347" stopOpacity="1" />
+              <stop offset="45%" stopColor="#ff4500" stopOpacity="1" />
+              <stop offset="60%" stopColor="#ff6347" stopOpacity="1" />
+              <stop offset="75%" stopColor="#ff7f00" stopOpacity="0.95" />
+              <stop offset="90%" stopColor="#ff8c00" stopOpacity="0.9" />
+              <stop offset="100%" stopColor="#ffa500" stopOpacity="0.85" />
+            </linearGradient>
+            <linearGradient id="brushGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#ffb347" stopOpacity="0.7" />
+              <stop offset="25%" stopColor="#ff9500" stopOpacity="0.8" />
+              <stop offset="50%" stopColor="#ff6b35" stopOpacity="0.9" />
+              <stop offset="75%" stopColor="#ff9500" stopOpacity="0.8" />
+              <stop offset="100%" stopColor="#ffb347" stopOpacity="0.7" />
+            </linearGradient>
+            <linearGradient id="brushGradient3" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#ffd700" stopOpacity="0.5" />
+              <stop offset="30%" stopColor="#ffb347" stopOpacity="0.6" />
+              <stop offset="50%" stopColor="#ff8c42" stopOpacity="0.7" />
+              <stop offset="70%" stopColor="#ffb347" stopOpacity="0.6" />
+              <stop offset="100%" stopColor="#ffd700" stopOpacity="0.5" />
             </linearGradient>
             <filter id="roughPaper">
-              <feTurbulence baseFrequency="0.04" numOctaves="5" result="noise" seed="1"/>
-              <feDisplacementMap in="SourceGraphic" in2="noise" scale="3"/>
+              <feTurbulence baseFrequency="0.02" numOctaves="3" result="noise" seed="1"/>
+              <feDisplacementMap in="SourceGraphic" in2="noise" scale="8"/>
+            </filter>
+            <filter id="watercolor" x="-50%" y="-50%" width="200%" height="200%">
+              <feTurbulence baseFrequency="0.04" numOctaves="3" result="noise"/>
+              <feDisplacementMap in="SourceGraphic" in2="noise" scale="15"/>
+              <feGaussianBlur stdDeviation="3" result="blur"/>
+              <feColorMatrix type="saturate" values="1.5"/>
             </filter>
           </defs>
+          
+          {/* Main curved stroke - wider and more pronounced */}
           <path
-            d="M0 200 Q200 160 400 180 T800 170 Q1000 165 1200 175"
+            d="M0 200 Q150 120 300 160 Q450 200 600 180 Q750 160 900 170 Q1050 180 1200 160"
             stroke="url(#brushGradient)"
-            strokeWidth="35"
+            strokeWidth="105"
             fill="none"
             strokeLinecap="round"
             strokeLinejoin="round"
-            filter="url(#roughPaper)"
-            opacity="0.7"
+            filter="url(#watercolor)"
+            opacity="0.8"
           />
+          
+          {/* Secondary stroke for depth */}
           <path
-            d="M0 205 Q180 155 380 185 T780 175 Q980 170 1200 180"
-            stroke="url(#brushGradient)"
-            strokeWidth="25"
+            d="M0 205 Q140 115 290 165 Q440 205 590 185 Q740 165 890 175 Q1040 185 1200 165"
+            stroke="url(#brushGradient2)"
+            strokeWidth="75"
             fill="none"
             strokeLinecap="round"
             strokeLinejoin="round"
-            filter="url(#roughPaper)"
-            opacity="0.5"
+            filter="url(#watercolor)"
+            opacity="0.6"
           />
+          
+          {/* Highlight stroke */}
           <path
-            d="M0 195 Q220 165 420 175 T820 165 Q1020 160 1200 170"
-            stroke="url(#brushGradient)"
-            strokeWidth="18"
+            d="M0 195 Q160 125 310 155 Q460 195 610 175 Q760 155 910 165 Q1060 175 1200 155"
+            stroke="url(#brushGradient3)"
+            strokeWidth="45"
             fill="none"
             strokeLinecap="round"
             strokeLinejoin="round"
-            filter="url(#roughPaper)"
-            opacity="0.3"
+            filter="url(#watercolor)"
+            opacity="0.4"
           />
         </svg>
       </div>
