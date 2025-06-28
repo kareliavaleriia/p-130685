@@ -8,7 +8,6 @@ import Education from "@/components/portfolio/Education";
 import Examples from "@/components/portfolio/Examples";
 import Achievements from "@/components/portfolio/Achievements";
 import Skills from "@/components/portfolio/Skills";
-import Testimonials from "@/components/portfolio/Testimonials";
 import FAQ from "@/components/portfolio/FAQ";
 import Contact from "@/components/portfolio/Contact";
 import Footer from "@/components/portfolio/Footer";
@@ -51,7 +50,6 @@ const PortfolioIndex = () => {
             <Examples />
             <Achievements />
             <Skills />
-            <Testimonials />
             <FAQ />
             <Contact />
           </main>
