@@ -1,31 +1,27 @@
-
 import React, { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
-
 const Contact = () => {
-  const { t } = useLanguage();
+  const {
+    t
+  } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: '',
     channel: 'email'
   });
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
     // Handle form submission
   };
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
-
-  return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8">
+  return <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="container max-w-7xl mx-auto">
         <div className="mb-16 animate-on-scroll">
           <h2 className="text-left section-title text-gray-900 dark:text-white mb-6">
@@ -64,13 +60,9 @@ const Contact = () => {
 
             <div className="flex flex-col items-center space-y-4">
               <div className="text-center">
-                <h4 className="font-semibold text-gray-900 dark:text-white mb-2">QR-код Telegram-канала</h4>
+                
                 <div className="w-32 h-32 rounded-lg overflow-hidden">
-                  <img 
-                    src="/lovable-uploads/7e25ad47-0e77-4a52-bec0-d758c5aecd1c.png" 
-                    alt="QR-код Telegram-канала" 
-                    className="w-full h-full object-cover"
-                  />
+                  <img src="/lovable-uploads/7e25ad47-0e77-4a52-bec0-d758c5aecd1c.png" alt="QR-код Telegram-канала" className="w-full h-full object-cover" />
                 </div>
               </div>
               <a href="/lovable-uploads/resume.pdf" target="_blank" rel="noopener noreferrer" className="button-primary">
@@ -84,8 +76,6 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Contact;
