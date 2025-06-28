@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Modal from "@/components/ui/modal";
@@ -28,14 +29,14 @@ const Education = () => {
   const courses = [
     {
       name: "Управление проектами и продуктами при разработке цифровых сервисов",
-      provider: "Формула-IT Цифровые кафедры, СПбПУ",
+      provider: "Формула-IT Цифровые кафедры • СПбПУ",
       year: "2024",
       tags: ["Анализ конкурентов", "SWOT-анализ", "PEST-анализ", "Анализ ЦА", "Образ продукта"],
       document: "/lovable-uploads/cert-otus.pdf"
     },
     {
       name: "Технологии анализа данных",
-      provider: "Bonus Track, ИТМО",
+      provider: "Bonus Track • ИТМО",
       year: "2023",
       tags: ["Анализ данных", "SQL-запросы"],
       document: "/lovable-uploads/cert-netology.pdf"

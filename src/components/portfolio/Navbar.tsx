@@ -24,9 +24,9 @@ const Navbar = () => {
 
   const menuItems = [
     { key: 'about', href: '#about' },
-    { key: 'projects', href: '#projects', label: 'Проекты' },
     { key: 'projects', href: '#projects', label: 'Карьера' },
     { key: 'education', href: '#education' },
+    { key: 'examples', href: '#projects', label: 'Проекты' },
     { key: 'achievements', href: '#achievements' },
     { key: 'skills', href: '#skills' },
     { key: 'contact', href: '#contact' }

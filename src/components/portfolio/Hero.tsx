@@ -1,6 +1,6 @@
 
 import React, { useRef, useEffect, useState } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Music } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Hero = () => {
@@ -50,8 +50,8 @@ const Hero = () => {
       {/* Decorative brush stroke line */}
       <div className="absolute inset-0 pointer-events-none">
         <svg 
-          className="absolute top-1/2 left-0 transform -translate-y-1/2 w-full h-40 sm:h-56 lg:h-72"
-          viewBox="0 0 1200 300"
+          className="absolute top-1/2 left-0 transform -translate-y-1/2 w-full h-60 sm:h-80 lg:h-96"
+          viewBox="0 0 1200 400"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           preserveAspectRatio="none"
@@ -70,9 +70,9 @@ const Hero = () => {
             </filter>
           </defs>
           <path
-            d="M0 150 Q200 120 400 140 T800 130 Q1000 125 1200 135"
+            d="M0 200 Q200 160 400 180 T800 170 Q1000 165 1200 175"
             stroke="url(#brushGradient)"
-            strokeWidth="25"
+            strokeWidth="35"
             fill="none"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -80,9 +80,9 @@ const Hero = () => {
             opacity="0.7"
           />
           <path
-            d="M0 155 Q180 115 380 145 T780 135 Q980 130 1200 140"
+            d="M0 205 Q180 155 380 185 T780 175 Q980 170 1200 180"
             stroke="url(#brushGradient)"
-            strokeWidth="18"
+            strokeWidth="25"
             fill="none"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -90,9 +90,9 @@ const Hero = () => {
             opacity="0.5"
           />
           <path
-            d="M0 145 Q220 125 420 135 T820 125 Q1020 120 1200 130"
+            d="M0 195 Q220 165 420 175 T820 165 Q1020 160 1200 170"
             stroke="url(#brushGradient)"
-            strokeWidth="12"
+            strokeWidth="18"
             fill="none"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -118,11 +118,25 @@ const Hero = () => {
                 Вижу проблемы - придумываю решения - создаю продукты, которые действительно нужны
               </p>
               
-              <p className="text-lg text-gray-500 dark:text-gray-400 max-w-2xl opacity-0 animate-fade-in" style={{
-                animationDelay: "0.7s"
-              }}>
-                В поиске баланса между интересами бизнеса и реальными потребностями людей через творческий взгляд, техническое мышление и внимание к деталям
-              </p>
+              <div className="space-y-2">
+                <p className="text-lg text-gray-500 dark:text-gray-400 max-w-2xl opacity-0 animate-fade-in" style={{
+                  animationDelay: "0.7s"
+                }}>
+                  В поиске баланса между интересами бизнеса и реальными потребностями людей через творческий взгляд, техническое мышление и внимание к деталям
+                </p>
+                
+                <a 
+                  href="https://t.me/pmkarelina"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block text-lg text-purple-600 dark:text-purple-400 hover:text-orange-500 dark:hover:text-orange-400 transition-colors duration-300 opacity-0 animate-fade-in"
+                  style={{
+                    animationDelay: "0.8s"
+                  }}
+                >
+                  Канал "О чем думает продакт"
+                </a>
+              </div>
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 opacity-0 animate-fade-in" style={{
@@ -138,9 +152,20 @@ const Hero = () => {
                 <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
               </a>
               
-              <a href="#about" className="button-secondary inline-flex items-center justify-center">
-                {t('about')}
-              </a>
+              <div className="flex gap-3">
+                <a href="#about" className="button-secondary inline-flex items-center justify-center">
+                  {t('about')}
+                </a>
+                
+                <a
+                  href="https://music.yandex.ru/users/Karelina.valery/playlists/1013?utm_source=desktop&utm_medium=copy_link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-purple-100 dark:hover:bg-purple-900/30 hover:text-purple-600 dark:hover:text-purple-400 transition-all duration-300 inline-flex items-center justify-center"
+                >
+                  <Music size={20} />
+                </a>
+              </div>
             </div>
           </div>
           
