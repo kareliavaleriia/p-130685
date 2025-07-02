@@ -6,6 +6,7 @@ import Modal from "@/components/ui/modal";
 const Education = () => {
   const { t } = useLanguage();
   const [selectedDocument, setSelectedDocument] = useState<string | null>(null);
+  const [showComingSoon, setShowComingSoon] = useState(false);
 
   const education = [
     {
@@ -14,7 +15,8 @@ const Education = () => {
       period: "2024-2026",
       description: "",
       tags: ["Оценка рынка", "Пользовательские исследования", "Agile-подход", "Стратегический менеджмент", "Цифровые бизнес-модели", "Figma", "Яндекс Метрика", "Составление презентаций", "Тестирование гипотез"],
-      document: "/lovable-uploads/diploma-itmo.pdf"
+      document: null,
+      comingSoon: true
     },
     {
       institution: "Инноватика",
@@ -22,7 +24,7 @@ const Education = () => {
       period: "2020-2024", 
       description: "Диплом с отличием",
       tags: ["Управление инновационной деятельностью", "Системный анализ", "Менеджмент качества", "Управление продуктом", "Управление проектами", "Управление ресурсами", "Miro", "Figma", "Power BI", "C#"],
-      document: "/lovable-uploads/diploma-spbpu.pdf"
+      document: "/Диплом бакалавриат.pdf"
     }
   ];
 
@@ -30,16 +32,17 @@ const Education = () => {
     {
       name: "Управление проектами и продуктами при разработке цифровых сервисов",
       provider: "Формула-IT Цифровые кафедры • СПбПУ Петра Великого",
-      year: "2024",
+      year: "2023-2024",
       tags: ["Анализ конкурентов", "SWOT-анализ", "PEST-анализ", "Анализ ЦА", "Образ продукта"],
-      document: "/lovable-uploads/cert-otus.pdf"
+      document: "/Диплом о проф переподготовке.pdf"
     },
     {
       name: "Технологии анализа данных",
       provider: "Bonus Track • НИУ ИТМО",
-      year: "2023",
+      year: "2024-2025",
       tags: ["Анализ данных", "SQL-запросы"],
-      document: "/lovable-uploads/cert-netology.pdf"
+      document: null,
+      comingSoon: true
     }
   ];
 
@@ -83,7 +86,13 @@ const Education = () => {
                 </div>
                 
                 <button
-                  onClick={() => setSelectedDocument(edu.document)}
+                  onClick={() => {
+                    if (edu.comingSoon) {
+                      setShowComingSoon(true);
+                    } else {
+                      setSelectedDocument(edu.document);
+                    }
+                  }}
                   className="text-pulse-600 dark:text-pulse-400 hover:text-pulse-700 dark:hover:text-pulse-300 font-medium"
                 >
                   Посмотреть диплом
@@ -116,7 +125,13 @@ const Education = () => {
                 </div>
                 
                 <button
-                  onClick={() => setSelectedDocument(course.document)}
+                  onClick={() => {
+                    if (course.comingSoon) {
+                      setShowComingSoon(true);
+                    } else {
+                      setSelectedDocument(course.document);
+                    }
+                  }}
                   className="text-pulse-600 dark:text-pulse-400 hover:text-pulse-700 dark:hover:text-pulse-300 font-medium"
                 >
                   Посмотреть сертификат
@@ -142,6 +157,17 @@ const Education = () => {
             />
           </div>
         )}
+      </Modal>
+
+      <Modal 
+        isOpen={showComingSoon} 
+        onClose={() => setShowComingSoon(false)}
+        title="Документ"
+        className="max-w-md"
+      >
+        <div className="text-center py-8">
+          <p className="text-2xl font-bold text-gray-900 dark:text-white">Скоро!</p>
+        </div>
       </Modal>
     </section>
   );

@@ -2,10 +2,12 @@
 import React, { useRef, useEffect, useState } from "react";
 import { ArrowRight, Music } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import Modal from "@/components/ui/modal";
 
 const Hero = () => {
   const imageRef = useRef<HTMLImageElement>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [showResumeModal, setShowResumeModal] = useState(false);
   const { t } = useLanguage();
 
   useEffect(() => {
@@ -171,15 +173,13 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-4 opacity-0 animate-fade-in" style={{
               animationDelay: "0.9s"
             }}>
-              <a 
-                href="/lovable-uploads/resume.pdf" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <button 
+                onClick={() => setShowResumeModal(true)}
                 className="button-primary inline-flex items-center justify-center group"
               >
                 Посмотреть резюме
                 <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </a>
+              </button>
               
               <div className="flex gap-3">
                 <a href="#about" className="button-secondary inline-flex items-center justify-center">
@@ -219,6 +219,33 @@ const Hero = () => {
           </div>
         </div>
       </div>
+
+      {/* Resume Modal */}
+      <Modal 
+        isOpen={showResumeModal} 
+        onClose={() => setShowResumeModal(false)}
+        title="Резюме"
+        className="max-w-4xl"
+      >
+        <div className="space-y-4">
+          <div className="w-full h-96">
+            <iframe
+              src="/Резюме_Валерия_Карелина_продакт.pdf"
+              className="w-full h-full border rounded-lg"
+              title="Резюме"
+            />
+          </div>
+          <div className="flex justify-center">
+            <a
+              href="/Резюме_Валерия_Карелина_продакт.pdf"
+              download
+              className="px-4 py-2 bg-pulse-600 text-white rounded-lg hover:bg-pulse-700 transition-colors"
+            >
+              Скачать PDF
+            </a>
+          </div>
+        </div>
+      </Modal>
     </section>
   );
 };

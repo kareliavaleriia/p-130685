@@ -4,6 +4,7 @@ import Navbar from "@/components/portfolio/Navbar";
 import Hero from "@/components/portfolio/Hero";
 import About from "@/components/portfolio/About";
 import Projects from "@/components/portfolio/Projects";
+import Career from "@/components/portfolio/Career";
 import Education from "@/components/portfolio/Education";
 import Examples from "@/components/portfolio/Examples";
 import Achievements from "@/components/portfolio/Achievements";
@@ -45,6 +46,7 @@ const PortfolioIndex = () => {
           <main className="space-y-0">
             <Hero />
             <About />
+            <Career />
             <Projects />
             <Education />
             <Examples />
