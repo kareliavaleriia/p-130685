@@ -230,14 +230,14 @@ const Hero = () => {
         <div className="space-y-4">
           <div className="w-full h-96">
             <iframe
-              src="/Резюме_Валерия_Карелина_продакт.pdf"
+              src="https://kareliavaleriia.github.io/p-130685/public/Резюме_Валерия_Карелина_продакт.pdf"
               className="w-full h-full border rounded-lg"
               title="Резюме"
             />
           </div>
           <div className="flex justify-center">
             <a
-              href="/Резюме_Валерия_Карелина_продакт.pdf"
+              href="https://kareliavaleriia.github.io/p-130685/public/Резюме_Валерия_Карелина_продакт.pdf"
               download
               className="px-4 py-2 bg-pulse-600 text-white rounded-lg hover:bg-pulse-700 transition-colors"
             >

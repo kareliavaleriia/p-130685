@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Modal from "@/components/ui/modal";
@@ -11,13 +12,13 @@ const Projects = () => {
       title: "Инструмент управления офисной средой",
       role: "Проект для ПАО «Газпром нефть», II место на питч-сессии",
       description: "Инновационное решение для оптимизации офисной среды и повышения комфорта сотрудников.",
-      presentation: "/Проект СО2.pdf"
+      presentation: "https://kareliavaleriia.github.io/p-130685/public/Проект%20СО2.pdf"
     },
     {
       title: "Углеродная компенсация. Декарбонизация",
       role: "Проект для ПАО «Газпром нефть», II место на питч-сессии",
       description: "Экологический проект по снижению углеродного следа и внедрению принципов устойчивого развития.",
-      presentation: "/Проект СО2.pdf"
+      presentation: "https://kareliavaleriia.github.io/p-130685/public/Презентация_Практика_Газпромнефть_2021.pdf"
     },
     {
       title: "Гипотезы по приложениям",
